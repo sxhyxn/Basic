@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*막내 만들어서 .막내{clear:both;} 해야 안 깨짐
+근데 css에서 가상의 공간 만들어서 하는게 더 편함*/
+
+.치료::after{
+    content:""; /*after랑 content는 무조건 같이*/
+    background-color: aqua;
+    display: block;
+    clear: both;
+    /*다 만들고나면 보기 편하게 맨 위로 옮기기*/
+}
+
+
+.아빠 {
+    width: 1000px;
+    padding: 20px;
+    background-color: bisque;
+    border: 1px solid black;
+    margin: 30px auto;
+}
+
+
+.일수>div{
+    width: 32%;
+    margin-right: 2%;
+    height: 150px;
+    background-color: chocolate;
+    text-align: center;
+    line-height: 150px;
+    float: left;
+}
+
+.일수>div:last-child{
+    margin-right: 0;
+}
+
+
+.일수 .자식1{
+    background-image: url(https://img.cgv.co.kr/Movie/Thumbnail/StillCut/000086/86926/86926213440_727.jpg);
+    background-size: cover; /*사진 크기 옆으로 맞춰짐*/
+    position: relative; 
+    /*cover  포지션 앱솔 하기위해 기준 잡아주기
+    기준이 되는 포지션:relative,absolute,fixed*/
+}
+
+.일수 .자식1 .cover{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 101%;
+    background-color: thistle;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.일수 .자식1:hover .cover{opacity: 1;}
+
+.일수 .자식2{
+    background-image: url(https://img.cgv.co.kr/Movie/Thumbnail/StillCut/000086/86926/86926213434_727.jpg);
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.일수 .자식2 .cover{
+    position: absolute;
+    left: 50%;
+    bottom: -50px;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(0,0,0,0.5) ;
+    color: #fff;
+}
+
+.일수 .자식2:hover .cover{
+    bottom: 0;
+    transition: 0.3s;
+    /*커버한테 시간을 줘야 마우스를 뗄 때도 천천히 바뀜*/
+}
+
+.일수 .자식3 {
+    position: relative;
+}
+.일수 .자식3 .cover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    line-height: 1.3;
+    border: 1px solid red;
+    border-radius: 20px;
+}
+
+.일수 .자식3 .cover .title{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    padding: 5px 10px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.일수 .자식3 .cover video{
+    width: 100%;
+}

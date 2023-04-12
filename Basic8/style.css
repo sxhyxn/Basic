@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.약::after {
+    content: "";
+    /* :: --> 가상을 나타낼때
+    after --> 인라인요소
+    에프터랑 콘텐트는 무조건 짝지*/
+    clear: both;
+    /*-->클보는 블록요소아니면 소용없음*/
+    display: block;
+}
+.아빠 {
+    background-color: blue;
+    width: 1000px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.아빠 .자식 {
+    background-color: blueviolet;
+    width: 33.3333%;
+    height: 100px;
+    float: left;
+}
+
+.팔수{margin-top: 30px;}
+.팔수 .자식8{width: 45%;
+background-color: cadetblue;
+float: left;
+height: 100px;
+}
+
+.팔수 .자식1{margin-right: 10%;}
