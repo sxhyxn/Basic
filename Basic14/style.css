@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+*{margin: 0; padding: 0;}
+
+body{background-color: lightgray;}
+
+.box1{
+    background-color: #fff;
+}
+.box1 .child{
+    font-size: 30px;
+    font-weight: bold;
+    width: 300px;
+    background-color: thistle;
+    margin: 30px auto; /* margin병합현상 */
+    text-align: center;
+    border: 10px solid thistle;
+    border-radius: 10px;
+    /* transition-property: transform;
+    transition-duration: 0.3s;
+    transition-delay: 0.5s;
+    transition-timing-function: cubic-bezier(0.35, 0.13, 0.28, 1.4); */
+    /* transition: transform 0.3s cubic-bezier(0.35, 0.13, 0.28, 1.4) 0.5s; */
+    /* transition: transform 0.3s, background-color 0.5s, color 0.3s 0.5s; */
+    transition: all 0.3s;
+    transition: 0.3s;
+
+}
+
+.box1 .child:hover{
+    transform: translateY(-30px);
+    background-color: sandybrown;
+    color: #fff;
+}
+
+.box2{
+    width: 400px;
+    font-size: 30px;
+    color: #222;
+    margin: 0 auto;
+    text-align: center;
+    background-color: darkgreen;
+    overflow: hidden;
+}
+.box2>div{
+    transform:translateX(-100%) ;
+    transition: 0.5s ease;
+}
+.box2:hover>div{
+    transform: translateX(0);
+}
+.box2 .one{transition-delay: 0.3s;}
+.box2 .two{transition-delay: 0.6s;}
+.box2 .three{transition-delay: 0.9s;}
+
+.box3{
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    text-align: center;
+    line-height: 100px;
+    /* 애니메이션 이름(keyframes의 네임과 동일해야함) */
+    animation-name: box_ani;
+    /* 애니메이션 움직임 지속시간 */
+    animation-duration: 1s;
+    /* 애니메이션 반복 횟수(무한반복 시 infinite) */
+    animation-iteration-count: 3;
+    /* 애니메이션의 방향
+    normal 기본
+    alternate 정->역->정
+    alternate-reverse 역->정->역
+    reverse 위치의 시작이 거꾸로 */
+    animation-direction: alternate;
+    /* 애니메이션의 지연시간 */
+    animation-delay: 1s;
+    /* 애니메이션 가속도 (ease써서 개발자모드로 조작하고 복붙) */
+    animation-timing-function: cubic-bezier(0.33, 0.23, 0.34, 1.18);
+    /* 애니메이션의 시작전과 끝후의 상태조절
+    forwards 애니가 끝난상태에서 멈춤
+    backwards 애니가 시작을 keyframes의 0%인 상태부터 시작
+    both = forwards + backwards*/
+    animation-fill-mode: backwards;}
+
+/* 애니메이션 움직임 제어 */
+@keyframes box_ani{
+    /* 시작지점 */
+    from{margin-left: 300px;}
+    /* 도착지점 */
+    to{margin-left: 800px;}
+}
+
+.box4{width: 100px;
+    height: 100px;
+    background-color: green;
+    text-align: center;
+    line-height: 100px;
+/* animation-name: box_ani2;
+animation-duration: 4s;
+animation-iteration-count: 3;
+animation-timing-function: ease-in-out;
+animation-delay: 1s;
+animation-fill-mode: both; */
+    animation: box_ani2 4s ease-in-out 1s 3;}
+
+@keyframes box_ani2{
+    0%{transform: translate(0px,0px);}
+    25%{transform: translate(200px,0px);}
+    50%{transform: translate(200px,200px);}
+    75%{transform: translate(0px,200px);}
+    100%{transform: translate(0px,0px);}
+}
