@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one_sign+div{ /*내바로밑동생*/
+            background-color: bisque;
+        }
+        .one_sign~div{ /*내밑의동생들*/
+            text-decoration: underline;
+        }
+        .wrap div:not(:last-child){ /*막내말고전부*/
+            color: red;
+        }
+        .wrap div:not([class="sign"]){  /*.sign빼고전부*/
+            text-align: center;
+        }
+
+
+        /*//////////////////////*/
+        .wrap div[class^="sign"]{  /*.중에sign으로시작하는것들*/
+            color: blue;
+        }
+
+        .wrap div[class$="sign"]{  /*.중에sign으로끝는것들*/
+            border: 1px solid green;
+        }
+
+        .wrap div[class*="sign"]{  /*.중에sign이들어가는것들*/
+            border: 1px solid black;
+        }
+
+        .wrap div[class~="sign"]{  /*.중에sign이단어로들어가는것*/
+            border: 1px solid purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="sign">sign</div>
+        <div class="sign_one">sign_one</div>
+        <div class="one_sign">one_sign</div>
+        <div class="onesignone">onesignone</div>
+        <div class="two_sign">two_sign</div>
+    </div>
+</body>
+</html>
